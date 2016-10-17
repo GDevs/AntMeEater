@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{98651089-1ba3-4b72-a597-0c0c39a5aef1}") = "Eater", "Eater.csproj", "{ea345043-b5e5-430e-b13c-ecd8581571fc}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ea345043-b5e5-430e-b13c-ecd8581571fc}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ea345043-b5e5-430e-b13c-ecd8581571fc}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ea345043-b5e5-430e-b13c-ecd8581571fc}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ea345043-b5e5-430e-b13c-ecd8581571fc}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
