@@ -22,6 +22,16 @@ namespace AntMe.Player.Eater
         ViewRangeModifier = 0
     )]
     [Caste(
+        Name = "Worker",
+        AttackModifier = 0,
+        EnergyModifier = 0,
+        LoadModifier = 0,
+        RangeModifier = 0,
+        RotationSpeedModifier = 0,
+        SpeedModifier = 0,
+        ViewRangeModifier = 0
+    )]
+    [Caste(
         Name = "Eater",
         AttackModifier = -1,
         EnergyModifier = -1,
@@ -36,9 +46,18 @@ namespace AntMe.Player.Eater
     {
 
 
+        #region Constants
         private static int NUMBER_OF_EATERS = 20;
-        private static int NUMBER_OF_DEFAULT = 80;
+        private static int NUMBER_OF_WORKERS = 80;
         private static int ANTHILLDISTANCE = 350;
+
+        private static int MSG_COLLECT_SUGAR = 1;
+        private static int RNG_COLLECT_SUGAR = ANTHILLDISTANCE;
+        private static int MSG_EAT_SUGAR = 2;
+        private static int RNG_EAT_SUGAR = 350;
+
+        #endregion
+
         #region Caste
 
         /// <summary>
@@ -54,7 +73,7 @@ namespace AntMe.Player.Eater
             {
                 return "Eater";
             }
-            return "Default";
+            return "Worker";
         }
 
         #endregion
@@ -131,7 +150,10 @@ namespace AntMe.Player.Eater
         /// <param name="sugar">spotted sugar</param>
         public override void Spots(Sugar sugar)
         {
-            this.GoToDestination(sugar);
+            if (this.Destination == null)
+            {
+                this.GoToDestination(sugar);
+            }
         }
 
         /// <summary>
@@ -156,12 +178,23 @@ namespace AntMe.Player.Eater
         {
             if (this.Caste == "Eater")
             {
-                if (this.DistanceToAnthill > ANTHILLDISTANCE)
+                if (this.DistanceToAnthill > ANTHILLDISTANCE && this.Destination == null)
                 {
+                    this.MakeMark(MSG_EAT_SUGAR, RNG_EAT_SUGAR);
                     this.Take(sugar);
                     this.Drop();
                     this.GoToDestination(sugar);
+                }else if (this.DistanceToAnthill <= ANTHILLDISTANCE)
+                {
+                    this.GoAwayFrom(sugar);
+                    this.MakeMark(MSG_COLLECT_SUGAR, RNG_COLLECT_SUGAR);
                 }
+            }
+            else if (this.Caste == "Worker")
+            {
+                this.MakeMark(MSG_COLLECT_SUGAR, RNG_COLLECT_SUGAR);
+                this.Take(sugar);
+                this.GoToAnthill();
             }
         }
 
@@ -177,6 +210,19 @@ namespace AntMe.Player.Eater
         /// <param name="marker">marker</param>
         public override void DetectedScentFriend(Marker marker)
         {
+            if(this.Caste == "Eater")
+            {
+                if(marker.Information == MSG_EAT_SUGAR && this.Destination == null)
+                {
+                    this.GoToDestination(marker);
+                }
+            }else if (this.Caste == "Worker")
+            {
+                if(marker.Information == MSG_COLLECT_SUGAR && this.Destination == null)
+                {
+                    this.GoToDestination(marker);
+                }
+            }
         }
 
         /// <summary>
@@ -214,6 +260,11 @@ namespace AntMe.Player.Eater
         /// <param name="ant">spotted ant</param>
         public override void SpotsEnemy(Ant ant)
         {
+            if (this.Caste == "Worker")
+            {
+                this.Drop();
+                this.Attack(ant);
+            }
         }
 
         /// <summary>
@@ -234,6 +285,8 @@ namespace AntMe.Player.Eater
         /// <param name="ant">attacking ant</param>
         public override void UnderAttack(Ant ant)
         {
+            this.Drop();
+            this.Attack(ant);
         }
 
         /// <summary>
