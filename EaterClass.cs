@@ -21,10 +21,26 @@ namespace AntMe.Player.Eater
         SpeedModifier = 0,
         ViewRangeModifier = 0
     )]
+    [Caste(
+        Name = "Eater",
+        AttackModifier = -1,
+        EnergyModifier = -1,
+        LoadModifier = -1,
+        RangeModifier = 0,
+        RotationSpeedModifier = 0,
+        SpeedModifier = 1,
+        ViewRangeModifier = 2
+    )]
+
     public class EaterClass : BaseAnt
     {
+
+
+        private static int NUMBER_OF_EATERS = 20;
+        private static int NUMBER_OF_DEFAULT = 80;
+        private static int ANTHILLDISTANCE = 30;
         #region Caste
-        
+
         /// <summary>
         /// Every time that a new ant is born, its job group must be set. You can 
         /// do so with the help of the value returned by this method.
@@ -34,6 +50,10 @@ namespace AntMe.Player.Eater
         /// <returns>Caste-Name for the next ant</returns>
         public override string ChooseCaste(Dictionary<string, int> typeCount)
         {
+            if (typeCount["Eater"] < NUMBER_OF_EATERS)
+            {
+                return "Eater";
+            }
             return "Default";
         }
 
@@ -48,6 +68,11 @@ namespace AntMe.Player.Eater
         /// </summary>
         public override void Waiting()
         {
+            if (this.Caste == "Eater")
+            {
+                this.TurnByDegrees(RandomNumber.Number(-179, 180));
+                this.GoForward();
+            }
         }
 
         /// <summary>
@@ -101,6 +126,7 @@ namespace AntMe.Player.Eater
         /// <param name="sugar">spotted sugar</param>
         public override void Spots(Sugar sugar)
         {
+            this.GoToDestination(sugar);
         }
 
         /// <summary>
@@ -123,6 +149,15 @@ namespace AntMe.Player.Eater
         /// <param name="sugar">reached sugar</param>
         public override void DestinationReached(Sugar sugar)
         {
+            if (this.Caste == "Eater")
+            {
+                if (this.DistanceToAnthill > ANTHILLDISTANCE)
+                {
+                    this.Take(sugar);
+                    this.Drop();
+                    this.GoToDestination(sugar);
+                }
+            }
         }
 
         #endregion

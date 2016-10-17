@@ -1,9 +1,8 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{98651089-1ba3-4b72-a597-0c0c39a5aef1}") = "Eater", "Eater.csproj", "{ea345043-b5e5-430e-b13c-ecd8581571fc}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eater", "Eater.csproj", "{EA345043-B5E5-430E-B13C-ECD8581571FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ea345043-b5e5-430e-b13c-ecd8581571fc}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ea345043-b5e5-430e-b13c-ecd8581571fc}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ea345043-b5e5-430e-b13c-ecd8581571fc}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ea345043-b5e5-430e-b13c-ecd8581571fc}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA345043-B5E5-430E-B13C-ECD8581571FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA345043-B5E5-430E-B13C-ECD8581571FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA345043-B5E5-430E-B13C-ECD8581571FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA345043-B5E5-430E-B13C-ECD8581571FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

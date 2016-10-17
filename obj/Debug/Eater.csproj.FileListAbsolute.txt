@@ -1,0 +1,11 @@
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\bin\AntMe.Player.Eater.dll
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\bin\AntMe.Player.Eater.pdb
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\bin\AntMe.SharedComponents.dll
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\bin\AntMe.Simulation.dll
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\bin\AntMe.SharedComponents.xml
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\bin\AntMe.Simulation.xml
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\bin\de\AntMe.SharedComponents.resources.dll
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\bin\de\AntMe.Simulation.resources.dll
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\obj\Debug\Eater.csprojResolveAssemblyReference.cache
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\obj\Debug\AntMe.Player.Eater.dll
+C:\Users\Adrian\Documents\Visual Studio 2015\Projects\Eater\obj\Debug\AntMe.Player.Eater.pdb
