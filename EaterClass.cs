@@ -38,7 +38,7 @@ namespace AntMe.Player.Eater
 
         private static int NUMBER_OF_EATERS = 20;
         private static int NUMBER_OF_DEFAULT = 80;
-        private static int ANTHILLDISTANCE = 30;
+        private static int ANTHILLDISTANCE = 350;
         #region Caste
 
         /// <summary>
@@ -68,11 +68,8 @@ namespace AntMe.Player.Eater
         /// </summary>
         public override void Waiting()
         {
-            if (this.Caste == "Eater")
-            {
-                this.TurnByDegrees(RandomNumber.Number(-179, 180));
-                this.GoForward();
-            }
+            this.TurnByDegrees(RandomNumber.Number(-179, 180));
+            this.GoForward();
         }
 
         /// <summary>
@@ -102,6 +99,14 @@ namespace AntMe.Player.Eater
         /// </summary>
         public override void Tick()
         {
+            if (this.Caste == "Eater") {
+            } else
+            {
+                if( this.DistanceToAnthill >= ANTHILLDISTANCE)
+                {
+                    this.GoToAnthill();
+                }
+            }
         }
 
         #endregion
